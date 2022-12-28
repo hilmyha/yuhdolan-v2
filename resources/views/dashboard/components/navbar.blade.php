@@ -1,6 +1,6 @@
 <header class="bg-white border-gray-200 md:px-10 sm:px-2 py-5 rounded dark:bg-gray-900">
   <div class="px-4 flex flex-wrap items-center justify-between">
-    <a href="#" class="flex items-center">
+    <a href="/" class="flex items-center">
         <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">YuhDolan</span>
     </a>
     <div class="flex items-center md:order-1">

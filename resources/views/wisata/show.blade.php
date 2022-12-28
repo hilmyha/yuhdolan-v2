@@ -9,7 +9,7 @@
     </div>
   </div>
   <div class="pt-4 pb-24 px-4 container flex border">
-    <div class="w-[60%] text-justify format format-red border">
+    <div class="max-w-[65%] text-justify format format-red border">
 
       <article class="w-full">
         <div class="flex">

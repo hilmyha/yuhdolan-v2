@@ -3,9 +3,7 @@
 @section('container')
   <h1>Post by, {{ auth()->user()->name }}</h1>
 
-  <div class="my-4">
-    <a href="/dashboard/wisata/create">Create</a>
-  </div>
+  
   <div class="overflow-x-auto relative mt-5 border">
     <table class="w-full text-sm text-left text-gray-500">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
@@ -40,8 +38,13 @@
                 </td>
                 <td class="py-4 px-6">
                     <a href="/dashboard/wisata/{{ $wisata->id }}" class="font-medium mr-2 border text-green-500 hover:underline">Show</a>
-                    <a href="#" class="font-medium mr-2 border text-yellow-300 hover:underline">Edit</a>
-                    <a href="#" class="font-medium mr-2 border text-pink-500 hover:underline">Delete</a>
+                    <a href="/dashboard/wisata/{{ $wisata->id }}/edit" class="font-medium mr-2 border text-yellow-300 hover:underline">Edit</a>
+                    {{-- <a href="#" class="font-medium mr-2 border text-pink-500 hover:underline">Delete</a> --}}
+                    <form class="inline" action="/dashboard/wisata/{{ $wisata->id }}" method="post">
+                      @method('delete')
+                      @csrf
+                      <button type="submit" class="font-medium mr-2 border text-pink-500 hover:underline">Delete</button>
+                    </form>
                 </td>
             </tr>
           @endforeach
@@ -49,9 +52,15 @@
     </table>
   </div>
 
-  {{-- <div class="my-4">
+  <div class="my-4">
     {{ $wisatas->links() }}
 
-  </div> --}}
+  </div>
+
+  <div class="my-6">
+    <a class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2" href="/dashboard/wisata/create">Create Post</a>
+  </div>
+
+  
 
 @endsection

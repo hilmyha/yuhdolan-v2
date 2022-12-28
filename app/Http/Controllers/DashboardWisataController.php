@@ -20,7 +20,7 @@ class DashboardWisataController extends Controller
     {
         return view('dashboard.wisata.index', [
             'title' => 'Wisata',
-            'wisatas' => Wisata::where('user_id', auth()->user()->id)->latest()->get(),
+            'wisatas' => Wisata::where('user_id', auth()->user()->id)->latest()->paginate(4),
             // 'wisatas' => Wisata::with('city', 'user')->latest()->paginate(6),
         ]);
     }
@@ -48,11 +48,12 @@ class DashboardWisataController extends Controller
         $vaidatedData = $request->validate([
             'title' => 'required|max:255',
             'slug' => 'required|unique:wisatas',
+            'excerpt' => 'required',
             'city_id' => 'required',
             'body' => 'required',
         ]);
         $vaidatedData['user_id'] = auth()->user()->id;
-        $vaidatedData['excerpt'] = Str::words(strip_tags($request->body), 200);
+        // $vaidatedData['excerpt'] = Str::words(strip_tags($request->body), 200);
 
         // dd($vaidatedData);
         Wisata::create($vaidatedData);
@@ -87,7 +88,15 @@ class DashboardWisataController extends Controller
      */
     public function edit($id)
     {
-        //
+        $wisata = Wisata::find($id);
+        $cities = City::all();
+        $users = User::all();
+        return view('dashboard.wisata.edit', [
+            'wisata' => $wisata,
+            'cities' => $cities,
+            'users' => $users,
+        ]);
+        
     }
 
     /**
@@ -97,9 +106,27 @@ class DashboardWisataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Wisata $wisata)
     {
-        //
+        $rules = [
+            'title' => 'required|max:255',
+            'excerpt' => 'required',
+            'city_id' => 'required',
+            'body' => 'required',
+        ];
+
+        if ($request->slug != $wisata->slug) {
+            $rules['slug'] = 'required|unique:wisata';
+        }
+
+        $validatedData = $request->validate($rules);
+
+        $validatedData['user_id'] = auth()->user()->id;
+
+        // dd($validatedData);
+        Wisata::where('id', $wisata->id)->update($validatedData);
+
+        return redirect('/dashboard/wisata')->with('success', 'Post has been updated');
     }
 
     /**
@@ -110,7 +137,9 @@ class DashboardWisataController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Wisata::destroy($id);
+
+        return redirect('/dashboard/wisata')->with('success', 'Post has been deleted');
     }
 
     public function checkSlug(Request $request)

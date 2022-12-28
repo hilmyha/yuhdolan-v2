@@ -3,7 +3,9 @@
 @section('container')
   <h1>Post by, {{ auth()->user()->name }}</h1>
 
-  
+  <div class="my-4">
+    <a href="/dashboard/wisata/create">Create</a>
+  </div>
   <div class="overflow-x-auto relative mt-5 border">
     <table class="w-full text-sm text-left text-gray-500">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50">

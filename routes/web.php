@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\WisataController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,6 +52,6 @@ Route::get('/dashboard', function () {
 })->middleware('auth');
 
 // dashboard wisata
+Route::get('/dashboard/wisata/checkSlug', [DashboardWisataController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/wisata', DashboardWisataController::class)->middleware('auth');
-// Route::resource('/dashboard/wisata', TestController::class);
 

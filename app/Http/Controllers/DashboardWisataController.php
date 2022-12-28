@@ -6,6 +6,8 @@ use App\Models\City;
 use App\Models\User;
 use App\Models\Wisata;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class DashboardWisataController extends Controller
 {
@@ -18,7 +20,7 @@ class DashboardWisataController extends Controller
     {
         return view('dashboard.wisata.index', [
             'title' => 'Wisata',
-            'wisatas' => Wisata::where('user_id', auth()->user()->id)->get(),
+            'wisatas' => Wisata::where('user_id', auth()->user()->id)->latest()->get(),
             // 'wisatas' => Wisata::with('city', 'user')->latest()->paginate(6),
         ]);
     }
@@ -30,7 +32,9 @@ class DashboardWisataController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.wisata.create', [
+            'cities' => City::all(),
+        ]);
     }
 
     /**
@@ -41,7 +45,19 @@ class DashboardWisataController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $vaidatedData = $request->validate([
+            'title' => 'required|max:255',
+            'slug' => 'required|unique:wisatas',
+            'city_id' => 'required',
+            'body' => 'required',
+        ]);
+        $vaidatedData['user_id'] = auth()->user()->id;
+        $vaidatedData['excerpt'] = Str::words(strip_tags($request->body), 200);
+
+        // dd($vaidatedData);
+        Wisata::create($vaidatedData);
+
+        return redirect('/dashboard/wisata')->with('success', 'Post has been added');
     }
 
     /**
@@ -54,8 +70,8 @@ class DashboardWisataController extends Controller
     public function show($id)
     {
         $wisata = Wisata::find($id);
-        // $cities = City::all();
-        // $users = User::all();
+        $cities = City::all();
+        $users = User::all();
         return view('dashboard.wisata.show', [
                 'wisata' => $wisata,
                 // 'cities' => $cities,
@@ -95,5 +111,11 @@ class DashboardWisataController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function checkSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(Wisata::class, 'slug', $request->title);
+        return response()->json(['slug' => $slug]);
     }
 }

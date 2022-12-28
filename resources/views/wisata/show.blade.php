@@ -9,7 +9,7 @@
     </div>
   </div>
   <div class="pt-4 pb-24 px-4 container flex border">
-    <div class="max-w-[60%] text-justify format format-red border">
+    <div class="w-[60%] text-justify format format-red border">
 
       <article class="w-full">
         <div class="flex">
@@ -25,7 +25,7 @@
       </article>
       
     </div>
-    <div class="w-full sticky-top ml-4 text-justify format format-red border">
+    <div class="w-full ml-4 text-justify format format-red border">
       
       <aside class="w-full p-6 bg-white border border-gray-200 rounded-lg shadow-md">
         <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 underline dark:text-white">Pemesanan</h5>

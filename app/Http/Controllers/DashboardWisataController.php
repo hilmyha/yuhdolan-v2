@@ -112,6 +112,7 @@ class DashboardWisataController extends Controller
         $wisata = Wisata::find($id);
         $rules = [
             'title' => 'required|max:255',
+            // 'slug' => 'required',
             'excerpt' => 'required',
             'city_id' => 'required',
             'body' => 'required',
@@ -119,7 +120,7 @@ class DashboardWisataController extends Controller
         ];
 
         if ($request->slug != $wisata->slug) {
-            $rules['slug'] = 'required|unique:wisata';
+            $rules['slug'] = 'required|unique:wisatas';
         }
 
         $validatedData = $request->validate($rules);
@@ -129,6 +130,7 @@ class DashboardWisataController extends Controller
         Wisata::where('id', $wisata->id)->update($validatedData);
 
         return redirect('/dashboard/wisata')->with('success', 'Post has been updated');
+
     }
 
     /**

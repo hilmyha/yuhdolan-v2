@@ -6,7 +6,7 @@
   <h1>Edit Post</h1>
 
   <div class="mt-5 md:col-span-2 md:mt-0">
-    <form action="/dashboard/wisata/{{ $wisata->slug }}" method="post">
+    <form action="/dashboard/wisata/{{ $wisata->id }}" method="post">
       @method('put')
       @csrf
         <div class="space-y-6 bg-white py-2 sm:p-6">

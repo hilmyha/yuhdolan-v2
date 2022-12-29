@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
+use App\Models\City;
+use App\Models\Wisata;
 use Illuminate\Http\Request;
 
 class LandingController extends Controller
@@ -13,7 +16,12 @@ class LandingController extends Controller
      */
     public function index()
     {
-        //
+        return view('welcome', [
+            'title' => 'Home',
+            'wisatas' => Wisata::latest()->paginate(6),
+            'cities' => City::get(),
+            'blogs' => Blog::latest()->paginate(3),
+        ]);
     }
 
     /**

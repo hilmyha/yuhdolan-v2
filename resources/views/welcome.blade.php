@@ -2,7 +2,6 @@
 
 @section('container')
 
-
   {{-- hero --}}
   <section class="wrapper">
     <div class="owl-carousel owl-theme owl-loaded">
@@ -60,6 +59,121 @@
     </div>
   </section>
 
+  {{-- destinasi --}}
+  <section class="bg-white">
+    <div class="py-24 px-4 container border">
+      
+      <div class="pb-10">
+        <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-700">Top Destination</h2>
+        <p class="font-light text-gray-500 sm:text-xl">We use an agile approach to test assumptions and connect with the needs of your audience early and often.</p>
+      </div>
+    
+      <div class="grid gap-8 xl:grid-cols-3 lg:grid-cols-2">     
+        @foreach ($wisatas as $wisata)
+          <article class="card">
+            <div class="p-5">
+              <div class="img-card">
+                <img class="rounded-lg" src="http://source.unsplash.com/1920x1080?{{ $wisata->name }}" alt="" />
+              </div>
+              <div class="flex justify-between items-center mb-5 text-gray-500">
+                <span class="bg-teal-100 text-teal-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded">
+                    {{ $wisata->name }}
+                </span>
+                <span class="text-sm">{{ $wisata->created_at->diffForHumans() }}</span>
+              </div>
+              <a href="/wisata/{{ $wisata->slug }}">
+                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-700 hover:underline">{{ $wisata->title }}</h5>
+              </a>
+              <p class="mb-4 font-normal text-gray-700">{{ $wisata->excerpt }}</p>
+            </div>
+          </article>
+        @endforeach 
+      </div>
+      {{-- <div class="pt-10 text-end">
+        <a href="#" class="px-3 py-2 text-sm font-medium text-center text-white bg-yellow-300 rounded-lg hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-teal-300">View more</a>
+      </div> --}}
+      {{-- <div class="pt-6">
+        {{ $wisatas->links() }}
+      </div> --}}
+      
+    
+    </div>
+  </section>
+
+  {{-- hidden gems --}}
+  <section class="bg-white">
+    <div class="py-24 px-4 container border">
+      <div class="pb-10">
+        <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-700">Hidden Gems</h2>
+        <p class="font-light text-gray-500 sm:text-xl">We use an agile approach to test assumptions and connect with the needs of your audience early and often.</p>
+      </div>
+      
+      <div class="grid gap-8 grid-cols-1 xl:grid-cols-4 lg:grid-cols-2">
+        @if ($blogs->count())
+          <a class="lg:col-span-2" href="/blog/{{ $blogs[0]->slug }}">
+            <div class="card-image ">
+              <img src="http://source.unsplash.com/1920x1080?{{ $blogs[0]->title }}" alt="">
+                
+                <div class="image-child">
+                  <div class="image-textarea">
+                    
+                    <span class="mb-2 text-2xl font-bold tracking-tight text-white">{{ $blogs[0]->title }}</span>
+                    <p>{{ $blogs[0]->excerpt }}</p>
+                    
+                  </div>
+                </div>
+              
+            </div>
+          </a>
+          
+            @foreach ($blogs->skip(1) as $blog)
+            <a href="/blog/{{ $blog->slug }}">
+              <div class="card-image">
+                <img src="http://source.unsplash.com/1920x1080?{{ $blog->title }}" alt="">
+                
+                <div class="image-child">
+                  <div class="image-textarea">
+                    
+                    <span class="mb-2 text-2xl font-bold tracking-tight text-white">{{ $blog->title }}</span>
+                    <p>{{ $blog->excerpt }}</p>
+                    
+                  </div>
+                </div>
+              
+              </div>
+            </a>
+            @endforeach 
+          @else
+          
+          @endif 
+          
+        </div>
+      </div>
+  </section>
   
+  {{-- post by city --}}
+  <section class="bg-white">
+    <div class="py-24 px-4 container border">
+      
+      <div class="pb-10">
+        <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-700">Destination by City</h2>
+        <p class="font-light text-gray-500 sm:text-xl">We use an agile approach to test assumptions and connect with the needs of your audience early and often.</p>
+      </div>
+    
+      <div class="grid gap-8 xl:grid-cols-3 lg:grid-cols-2">     
+        @foreach ($cities as $city)
+          
+        
+        <a href="/city/{{ $city->slug }}" class="block p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{ $city->name }}</h5>
+          <p class="font-normal text-gray-700">{{ $city->description }}</p>
+        </a>
+
+
+        @endforeach
+      
+    
+    </div>
+  </section>
 
 @endsection

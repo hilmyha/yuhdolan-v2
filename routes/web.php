@@ -8,6 +8,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LandingController;
 use App\Models\City;
 use Illuminate\Support\Facades\Route;
 
@@ -22,12 +23,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome', [
-        'title' => 'Home',
-        'cities' => City::all(),
-    ]);
-});
+// Route::get('/', function () {
+//     return view('welcome', [
+//         'title' => 'Home',
+//         'cities' => City::all(),
+//     ]);
+// });
+Route::get('/', [LandingController::class, 'index']);
 
 // wisata
 Route::get('/top-destination', [WisataController::class, 'index']);

@@ -49,9 +49,10 @@ class DashboardWisataController extends Controller
             'title' => 'required|max:255',
             'slug' => 'required|unique:wisatas',
             'excerpt' => 'required',
+            'harga' => 'required',
+            'no_pengelola' => 'required',
             'city_id' => 'required',
             'body' => 'required',
-            'harga' => 'required',
         ]);
         $validatedData['user_id'] = auth()->user()->id;
         // $validatedData['excerpt'] = Str::words(strip_tags($request->body), 200);
@@ -114,9 +115,10 @@ class DashboardWisataController extends Controller
             'title' => 'required|max:255',
             // 'slug' => 'required',
             'excerpt' => 'required',
+            'harga' => 'required',
+            'no_pengelola' => 'required',
             'city_id' => 'required',
             'body' => 'required',
-            'harga' => 'required',
         ];
 
         if ($request->slug != $wisata->slug) {

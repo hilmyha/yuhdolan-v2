@@ -1,8 +1,13 @@
 @extends('dashboard.components.dashboard-layout')
 
 @section('container')
-  <h1>Post by, {{ auth()->user()->name }}</h1>
+  <h1 class="text-2xl">Post by, {{ auth()->user()->name }}</h1>
 
+  @if (session()->has('success'))
+    <div class="p-4 my-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+      <span class="font-medium">{{ session('success') }}</span>
+    </div>
+  @endif
   
   <div class="overflow-x-auto relative mt-5 border">
     <table class="w-full text-sm text-left text-gray-500">
@@ -57,8 +62,8 @@
 
   </div>
 
-  <div class="my-6">
-    <a class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2" href="/dashboard/wisata/create">Create Post</a>
+  <div class="my-6 flex justify-end">
+    <a class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5" href="/dashboard/wisata/create">Create Post</a>
   </div>
 
   

@@ -51,6 +51,8 @@ class DashboardWisataController extends Controller
             'excerpt' => 'required',
             'harga' => 'required',
             'no_pengelola' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required',
             'city_id' => 'required',
             'body' => 'required',
         ]);
@@ -117,6 +119,8 @@ class DashboardWisataController extends Controller
             'excerpt' => 'required',
             'harga' => 'required',
             'no_pengelola' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required',
             'city_id' => 'required',
             'body' => 'required',
         ];

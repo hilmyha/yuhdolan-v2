@@ -48,6 +48,20 @@
           </div>
 
           <div>
+            <label for="latitude" class="block text-sm font-medium text-gray-700">Latitude</label>
+            <div class="mt-1 flex rounded-md shadow-sm">
+              <input type="text" name="latitude" id="latitude" class="block w-full flex-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm peer invalid:focus:ring-pink-600 invalid:text-pink-600 invalid:focus:border-pink-600" required autofocus value="{{ old('latitude') }}">
+            </div>
+          </div>
+
+          <div>
+            <label for="longitude" class="block text-sm font-medium text-gray-700">Longitude</label>
+            <div class="mt-1 flex rounded-md shadow-sm">
+              <input type="text" name="longitude" id="longitude" class="block w-full flex-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm peer invalid:focus:ring-pink-600 invalid:text-pink-600 invalid:focus:border-pink-600" required autofocus value="{{ old('longitude') }}">
+            </div>
+          </div>
+
+          <div>
             <label for="city" class="block mb-2 text-sm font-medium text-gray-900">Select your country</label>
             <select id="city" name="city_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
               @foreach ($cities as $city)

@@ -18,9 +18,11 @@
           </span>
         </div>
 
-        <h5>author <span class="text-teal-700 underline">{{ $wisata->user->name }}</span> created {{ $wisata->created_at->diffForHumans() }}</h5>
+        <h5>Created by <span class="text-teal-700 font-semibold">{{ $wisata->user->name }}</span> at <a class="text-teal-700 underline" href="/city/{{ $wisata->city->slug }}">{{ $wisata->city->name }}</a> | {{ $wisata->created_at->diffForHumans() }}</h5>
         <h1>{{ $wisata->title }}</h1>
         {!! $wisata->body !!}
+
+        <div class="w-full h-[450px] rounded-lg mt-6" id="maps"></div>
 
       </article>
       
@@ -45,4 +47,23 @@
     </div>
   </div>
 </section>
+
+<script type="module">
+  function showMap(lat, lng) {
+    // var coords = {lat: lat, lng: lng}
+    var coords = {lat: {{$wisata->latitude}}, lng: {{ $wisata->longitude }} }
+    
+    var map = new google.maps.Map(document.getElementById('maps'), {
+      zoom: 15,
+      center: coords
+    })
+
+    var marker = new google.maps.Marker({
+      position: coords,
+      map: map
+    })
+  }
+
+  showMap(0,0)
+</script>
 @endsection

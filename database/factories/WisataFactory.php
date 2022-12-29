@@ -23,6 +23,8 @@ class WisataFactory extends Factory
             'body'=> '<p>'. implode('<p></p>',fake()->paragraphs(mt_rand(10, 30))) . '</p>',
             'no_pengelola' => fake()->phoneNumber(),
             'harga' => fake()->numberBetween(10000, 100000),
+            'latitude' => fake()->latitude(),
+            'longitude' => fake()->longitude(),
             'user_id' => mt_rand(1, 5),
             'city_id' => mt_rand(1, 4),
             'published_at' => now(),

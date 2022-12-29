@@ -23,6 +23,8 @@ return new class extends Migration
             $table->text('body');
             $table->string('no_pengelola');
             $table->string('harga');
+            $table->string('latitude');
+            $table->string('longitude');
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });

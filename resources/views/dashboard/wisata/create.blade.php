@@ -29,6 +29,13 @@
               <input type="text" name="excerpt" id="excerpt" class="block w-full flex-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm peer invalid:focus:ring-pink-600 invalid:text-pink-600 invalid:focus:border-pink-600" required autofocus value="{{ old('excerpt') }}">
             </div>
           </div>
+          
+          <div>
+            <label for="harga" class="block text-sm font-medium text-gray-700">Harga</label>
+            <div class="mt-1 flex rounded-md shadow-sm">
+              <input type="text" name="harga" id="harga" class="block w-full flex-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm peer invalid:focus:ring-pink-600 invalid:text-pink-600 invalid:focus:border-pink-600" required autofocus value="{{ old('harga') }}">
+            </div>
+          </div>
 
           <div>
             <label for="city" class="block mb-2 text-sm font-medium text-gray-900">Select your country</label>

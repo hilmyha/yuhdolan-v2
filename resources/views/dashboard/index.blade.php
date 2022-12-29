@@ -1,7 +1,7 @@
 @extends('dashboard.components.dashboard-layout')
 
 @section('container')
-  <h1>Welcome, {{ auth()->user()->name }}</h1>
+  <h1 class="text-2xl">Welcome, {{ auth()->user()->name }}</h1>
 
   
   {{-- <div class="overflow-x-auto relative mt-5 border">

@@ -6,7 +6,8 @@
   <h1>Edit Post</h1>
 
   <div class="mt-5 md:col-span-2 md:mt-0">
-    <form action="/dashboard/wisata" method="post">
+    <form action="/dashboard/wisata/{{ $wisata->slug }}" method="post">
+      @method('put')
       @csrf
         <div class="space-y-6 bg-white py-2 sm:p-6">
           <div>
@@ -27,6 +28,13 @@
             <label for="excerpt" class="block text-sm font-medium text-gray-700">Excerpt</label>
             <div class="mt-1 flex rounded-md shadow-sm">
               <input type="text" name="excerpt" id="excerpt" class="block w-full flex-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm peer invalid:focus:ring-pink-600 invalid:text-pink-600 invalid:focus:border-pink-600" required autofocus value="{{ old('excerpt', $wisata->excerpt) }}">
+            </div>
+          </div>
+          
+          <div>
+            <label for="harga" class="block text-sm font-medium text-gray-700">Harga</label>
+            <div class="mt-1 flex rounded-md shadow-sm">
+              <input type="text" name="harga" id="harga" class="block w-full flex-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm peer invalid:focus:ring-pink-600 invalid:text-pink-600 invalid:focus:border-pink-600" required autofocus value="{{ old('harga', $wisata->harga) }}">
             </div>
           </div>
 

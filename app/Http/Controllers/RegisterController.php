@@ -55,48 +55,5 @@ class RegisterController extends Controller
         return redirect('/login')->with('success', 'Registrasi berhasil, silahkan Login');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Register  $register
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Register $register)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Register  $register
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Register $register)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateRegisterRequest  $request
-     * @param  \App\Models\Register  $register
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateRegisterRequest $request, Register $register)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Register  $register
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Register $register)
-    {
-        //
-    }
+    
 }

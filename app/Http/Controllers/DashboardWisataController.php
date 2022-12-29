@@ -45,18 +45,19 @@ class DashboardWisataController extends Controller
      */
     public function store(Request $request)
     {
-        $vaidatedData = $request->validate([
+        $validatedData = $request->validate([
             'title' => 'required|max:255',
             'slug' => 'required|unique:wisatas',
             'excerpt' => 'required',
             'city_id' => 'required',
             'body' => 'required',
+            'harga' => 'required',
         ]);
-        $vaidatedData['user_id'] = auth()->user()->id;
-        // $vaidatedData['excerpt'] = Str::words(strip_tags($request->body), 200);
+        $validatedData['user_id'] = auth()->user()->id;
+        // $validatedData['excerpt'] = Str::words(strip_tags($request->body), 200);
 
-        // dd($vaidatedData);
-        Wisata::create($vaidatedData);
+        // dd($validatedData);
+        Wisata::create($validatedData);
 
         return redirect('/dashboard/wisata')->with('success', 'Post has been added');
     }
@@ -89,12 +90,12 @@ class DashboardWisataController extends Controller
     public function edit($id)
     {
         $wisata = Wisata::find($id);
-        $cities = City::all();
-        $users = User::all();
+        // $cities = City::all();
+        // $users = User::all();
         return view('dashboard.wisata.edit', [
             'wisata' => $wisata,
-            'cities' => $cities,
-            'users' => $users,
+            'cities' => City::all(),
+            // 'users' => $users,
         ]);
         
     }
@@ -106,13 +107,15 @@ class DashboardWisataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Wisata $wisata)
+    public function update(Request $request, $id)
     {
+        $wisata = Wisata::find($id);
         $rules = [
             'title' => 'required|max:255',
             'excerpt' => 'required',
             'city_id' => 'required',
             'body' => 'required',
+            'harga' => 'required',
         ];
 
         if ($request->slug != $wisata->slug) {
@@ -120,7 +123,6 @@ class DashboardWisataController extends Controller
         }
 
         $validatedData = $request->validate($rules);
-
         $validatedData['user_id'] = auth()->user()->id;
 
         // dd($validatedData);

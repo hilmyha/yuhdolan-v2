@@ -6,19 +6,17 @@
   {{-- hero --}}
   <section class="wrapper">
     <div class="owl-carousel owl-theme owl-loaded">
-      {{-- @foreach ($kotas as $kota) --}}
+      @foreach ($cities as $city)
         <div class="item">
           <div class="carousel-textarea">
             <div class="text">
-              {{-- <h3 class="font-bold text-5xl">Hello {{ $kota->name }}</h3>
-              <p>{{ $kota->description }}</p> --}}
-              <h3 class="font-bold text-5xl">Hello</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ex nisi doloremque dolore reiciendis eligendi velit, ullam inventore itaque?</p>
+              <h3 class="font-bold text-5xl">Hello {{ $city->name }}</h3>
+              <p>{{ $city->description }}</p>
             </div>
           </div>
-          <img src="http://source.unsplash.com/1920x1080?yogyakarta" alt="">
+          <img src="http://source.unsplash.com/1920x1080?{{ $city->name }}" alt="">
         </div>
-      {{-- @endforeach --}}
+      @endforeach
     </div>
     
     <div class="owl-dots">

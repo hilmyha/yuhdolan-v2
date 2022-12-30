@@ -15,7 +15,7 @@
         <h5>Created by <span class="text-teal-700 font-semibold">{{ $wisata->user->name }}</span> at <a class="text-teal-700 underline" href="/city/{{ $wisata->city->slug }}">{{ $wisata->city->name }}</a> | {{ $wisata->created_at->diffForHumans() }}</h5>
         
         <div class="flex">
-          <span class="bg-teal-100 lead text-teal-800 font-medium inline-flex items-center px-2.5 py-0.5 rounded">
+          <span class="bg-teal-100 lead text-teal-800 font-medium text-sm inline-flex items-center px-2.5 py-0.5 rounded">
             {{ $wisata->city->name }}
           </span>
         </div>
@@ -23,7 +23,7 @@
         <h1>{{ $wisata->title }}</h1>
         {!! $wisata->body !!}
 
-        <div class="w-full h-[450px] rounded-lg my-6" id="maps"></div>
+        <div class="w-full h-[350px] rounded-lg my-6" id="maps"></div>
 
       </article>
       

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\DasboardBlogController;
 use App\Http\Controllers\DashboardWisataController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -58,4 +59,6 @@ Route::get('/dashboard', function () {
 // dashboard wisata
 Route::get('/dashboard/wisata/checkSlug', [DashboardWisataController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/wisata', DashboardWisataController::class)->middleware('auth');
+// dashboard blog
+Route::resource('/dashboard/blog', DasboardBlogController::class)->middleware('auth');
 

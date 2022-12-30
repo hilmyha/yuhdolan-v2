@@ -21,7 +21,7 @@
                   <a href="#" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-200">Kota</a>
               </li>
               <li>
-                  <a href="#" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-200">Blogs</a>
+                  <a href="/dashboard/blog" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-200">Blogs</a>
               </li>
         </ul>
       </li>

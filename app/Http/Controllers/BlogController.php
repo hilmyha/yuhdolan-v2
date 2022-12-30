@@ -17,7 +17,7 @@ class BlogController extends Controller
     {
         return view('blog.index', [
             'title' => 'Blog',
-            'blogs' => Blog::with(['user'])->get()
+            'blogs' => Blog::with(['user'])->latest()->get()
         ]);
     }
 

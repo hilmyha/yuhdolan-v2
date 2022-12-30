@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\DasboardBlogController;
+use App\Http\Controllers\DashboardCityController;
 use App\Http\Controllers\DashboardWisataController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -62,4 +63,7 @@ Route::resource('/dashboard/wisata', DashboardWisataController::class)->middlewa
 // dashboard blog
 Route::get('/dashboard/blog/checkSlug', [DasboardBlogController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/blog', DasboardBlogController::class)->middleware('auth');
+// dashboard city
+Route::get('/dashboard/city/checkSlug', [DashboardCityController::class, 'checkSlug'])->middleware('auth');
+Route::resource('/dashboard/city', DashboardCityController::class)->middleware('auth');
 

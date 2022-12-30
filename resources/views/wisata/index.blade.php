@@ -14,11 +14,11 @@
         <article class="card group hover:bg-primary-400">
           <div class="p-5">
             <div class="img-card">
-              <img class="rounded-lg" src="http://source.unsplash.com/1920x1080?{{ $wisata->city->name }}" alt="" />
+              <img class="rounded-lg" src="http://source.unsplash.com/1920x1080?{{ $wisata->title }}" alt="" />
             </div>
             <div class="flex justify-between items-center mb-5 text-gray-500 group-hover:text-white">
               <span class="bg-primary-50 text-primary-500 group-hover:bg-slate-50 group-hover:text-slate-500 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded">
-                  {{ $wisata->city->name }}
+                  {{ $wisata->city->title }}
               </span>
               <span class="text-sm group-hover:text-white">{{ $wisata->created_at->diffForHumans() }}</span>
             </div>

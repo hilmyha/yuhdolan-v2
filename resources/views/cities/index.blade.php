@@ -12,12 +12,12 @@
     <div class="grid gap-8 xl:grid-cols-3 lg:grid-cols-2">  
       @foreach ($cities as $city)
       <div class="card-image">
-        <img src="http://source.unsplash.com/1920x1080?{{ $city->name }}" alt="">
+        <img src="http://source.unsplash.com/1920x1080?{{ $city->title }}" alt="">
         
         <div class="image-child">
           <div class="image-textarea">
             <a href="/city/{{ $city->slug }}">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-white hover:underline">{{ $city->name }}</h5>
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-white hover:underline">{{ $city->title }}</h5>
             </a>
           
           </div>

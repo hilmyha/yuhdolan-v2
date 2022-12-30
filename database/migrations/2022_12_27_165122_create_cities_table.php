@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->foreignId('user_id');
+            $table->string('title')->unique();
             $table->string('slug')->unique();
             $table->string('description');
             $table->timestamps();

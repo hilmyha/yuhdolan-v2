@@ -14,11 +14,11 @@
         <article class="card">
           <div class="p-5">
             <div class="img-card">
-              <img class="rounded-lg" src="http://source.unsplash.com/1920x1080?{{ $wisata->city->name }}" alt="" />
+              <img class="rounded-lg" src="http://source.unsplash.com/1920x1080?{{ $wisata->city->title }}" alt="" />
             </div>
             <div class="flex justify-between items-center mb-5 text-gray-500">
               <span class="bg-teal-100 text-teal-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded">
-                  {{ $wisata->city->name }}
+                  {{ $wisata->city->title }}
               </span>
               <span class="text-sm">{{ $wisata->created_at->diffForHumans() }}</span>
             </div>

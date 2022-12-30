@@ -18,7 +18,7 @@
                   <a href="/dashboard/wisata" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-200">Wisata</a>
               </li>
               <li>
-                  <a href="#" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-200">Kota</a>
+                  <a href="/dashboard/city" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-200">Kota</a>
               </li>
               <li>
                   <a href="/dashboard/blog" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-200">Blogs</a>

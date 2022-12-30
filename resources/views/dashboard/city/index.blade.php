@@ -20,7 +20,7 @@
                     Title
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    Kota
+                    Description
                 </th>
                 <th scope="col" class="py-3 px-6">
                     Action
@@ -28,7 +28,7 @@
             </tr>
         </thead>
         <tbody>
-          @foreach ($wisatas as $wisata)
+          @foreach ($cities as $city)
             
           
             <tr class="bg-white border-b">
@@ -36,16 +36,15 @@
                   {{ $loop->iteration }}
                 </td>
                 <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                    {{ $wisata->title }}
+                    {{ $city->title }}
                 </th>
                 <td class="py-4 px-6">
-                    {{ $wisata->city->title }}
+                    {{ $city->description }}
                 </td>
                 <td class="py-4 px-6">
-                    <a href="/dashboard/wisata/{{ $wisata->id }}" class="font-medium mr-2 border text-green-500 hover:underline">Show</a>
-                    <a href="/dashboard/wisata/{{ $wisata->id }}/edit" class="font-medium mr-2 border text-yellow-300 hover:underline">Edit</a>
-                    {{-- <a href="#" class="font-medium mr-2 border text-pink-500 hover:underline">Delete</a> --}}
-                    <form class="inline" action="/dashboard/wisata/{{ $wisata->id }}" method="post">
+                    <a href="/dashboard/city/{{ $city->id }}" class="font-medium mr-2 border text-green-500 hover:underline">Show</a>
+                    <a href="/dashboard/city/{{ $city->id }}/edit" class="font-medium mr-2 border text-yellow-300 hover:underline">Edit</a>
+                    <form class="inline" action="/dashboard/city/{{ $city->id }}" method="post">
                       @method('delete')
                       @csrf
                       <button type="submit" class="font-medium mr-2 border text-pink-500 hover:underline">Delete</button>
@@ -58,12 +57,12 @@
   </div>
 
   <div class="my-4">
-    {{ $wisatas->links() }}
+    {{ $cities->links() }}
 
   </div>
 
   <div class="my-6 flex justify-end">
-    <a class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5" href="/dashboard/wisata/create">Create Post</a>
+    <a class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5" href="/dashboard/city/create">Create Post</a>
   </div>
 
   

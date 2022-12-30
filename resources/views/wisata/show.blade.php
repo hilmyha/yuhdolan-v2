@@ -12,11 +12,11 @@
     <div class="lg:max-w-[65%] max-w-[100%] text-justify format format-red">
 
       <article class="w-full">
-        <h5>Created by <span class="text-teal-700 font-semibold">{{ $wisata->user->name }}</span> at <a class="text-teal-700 underline" href="/city/{{ $wisata->city->slug }}">{{ $wisata->city->name }}</a> | {{ $wisata->created_at->diffForHumans() }}</h5>
+        <h5>Created by <span class="text-teal-700 font-semibold">{{ $wisata->user->name }}</span> at <a class="text-teal-700 underline" href="/city/{{ $wisata->city->slug }}">{{ $wisata->city->title }}</a> | {{ $wisata->created_at->diffForHumans() }}</h5>
         
         <div class="flex">
           <span class="bg-teal-100 lead text-teal-800 font-medium text-sm inline-flex items-center px-2.5 py-0.5 rounded">
-            {{ $wisata->city->name }}
+            {{ $wisata->city->title }}
           </span>
         </div>
 
@@ -29,7 +29,7 @@
       </article>
       
     </div>
-    <div class="w-full max-w-full ml-0 lg:ml-6 text-justify format format-red">
+    <div class="w-full max-w-full ml-0 lg:ml-12 text-justify format format-red">
       
       <aside class="w-full p-6 bg-white border border-gray-200 rounded-lg shadow-md">
         <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 underline dark:text-white">Pemesanan</h5>

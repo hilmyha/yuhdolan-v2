@@ -66,9 +66,9 @@
             <select id="city" name="city_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
               @foreach ($cities as $city)
                 @if (old('city_id') == $city->id)
-                  <option value="{{ $city->id }}" selected>{{ $city->name }}</option>
+                  <option value="{{ $city->id }}" selected>{{ $city->title }}</option>
                 @else
-                  <option value="{{ $city->id }}">{{ $city->name }}</option>
+                  <option value="{{ $city->id }}">{{ $city->title }}</option>
                 @endif
               @endforeach
             </select>

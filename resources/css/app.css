@@ -52,7 +52,7 @@
   }
 
   .card{
-    @apply bg-white border border-gray-200 rounded-lg flex flex-col hover:shadow-xl transition duration-200 ease-in-out hover:cursor-pointer
+    @apply bg-white border border-gray-200 rounded-lg flex flex-col hover:shadow-2xl transition duration-200 ease-in-out hover:cursor-pointer
   }
   .img-card{
     @apply h-[250px] overflow-hidden mb-4 bg-gray-300 rounded-lg

@@ -23,7 +23,8 @@
         <h1>{{ $wisata->title }}</h1>
         {!! $wisata->body !!}
 
-        <div class="w-full h-[350px] rounded-lg my-6" id="maps"></div>
+        <h1 class="mt-6">Lokasi</h1>
+        <div class="w-full h-[350px] rounded-lg mb-6" id="maps"></div>
 
       </article>
       

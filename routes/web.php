@@ -60,5 +60,6 @@ Route::get('/dashboard', function () {
 Route::get('/dashboard/wisata/checkSlug', [DashboardWisataController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/wisata', DashboardWisataController::class)->middleware('auth');
 // dashboard blog
+Route::get('/dashboard/blog/checkSlug', [DasboardBlogController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/blog', DasboardBlogController::class)->middleware('auth');
 

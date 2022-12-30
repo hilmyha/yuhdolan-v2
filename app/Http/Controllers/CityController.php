@@ -51,7 +51,7 @@ class CityController extends Controller
     public function show(City $city)
     {
         return view('cities.show', [
-            'title' => $city->name,
+            'title' => $city->title,
             'wisatas' => $city->wisata,
             'city' => $city->wisata,
         ]);

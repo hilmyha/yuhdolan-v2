@@ -1,4 +1,4 @@
-// import './bootstrap';
+import './bootstrap';
 
 $(document).ready(function () {
   $(".owl-carousel").owlCarousel({

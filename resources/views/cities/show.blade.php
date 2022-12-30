@@ -11,21 +11,23 @@
   
     <div class="grid gap-8 xl:grid-cols-3 lg:grid-cols-2">     
       @foreach ($wisatas as $wisata)
-        <article class="card">
+        <article class="card group hover:bg-primary-400">
           <div class="p-5">
-            <div class="img-card">
-              <img class="rounded-lg" src="http://source.unsplash.com/1920x1080?{{ $wisata->city->title }}" alt="" />
-            </div>
-            <div class="flex justify-between items-center mb-5 text-gray-500">
-              <span class="bg-teal-100 text-teal-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded">
-                  {{ $wisata->city->title }}
-              </span>
-              <span class="text-sm">{{ $wisata->created_at->diffForHumans() }}</span>
-            </div>
             <a href="/top-destination/{{ $wisata->slug }}">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-700 hover:underline">{{ $wisata->title }}</h5>
+              <div class="img-card">
+                <img class="rounded-lg" src="http://source.unsplash.com/1920x1080?{{ $wisata->title }}" alt="" />
+              </div>
+              <div class="flex justify-between items-center mb-5 text-gray-500 group-hover:text-white">
+                <span class="bg-primary-50 text-primary-500 group-hover:bg-slate-50 group-hover:text-slate-500 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded">
+                    {{ $wisata->city->title }}
+                </span>
+                <span class="text-sm group-hover:text-white">{{ $wisata->created_at->diffForHumans() }}</span>
+              </div>
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-700 group-hover:text-white group-hover:underline">{{ $wisata->title }}</h5>
+              
+              <p class="mb-4 font-normal text-gray-700 group-hover:text-white">{{ $wisata->excerpt }}</p>
+            
             </a>
-            <p class="mb-4 font-normal text-gray-700">{{ $wisata->excerpt }}</p>
           </div>
         </article>
       @endforeach

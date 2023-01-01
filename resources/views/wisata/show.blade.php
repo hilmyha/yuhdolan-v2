@@ -4,9 +4,15 @@
 <section class="bg-white">
   <div class=" pt-32 pb-4 px-4 container flex">
     {{-- thumbnail --}}
-    <div class="overflow-hidden h-[500px] w-full">
-      <img class="object-cover brightness-75" src="http://source.unsplash.com/1920x1080?{{ $wisata->title }}" alt="">
-    </div>
+    @if ($wisata->image)
+      <div class="overflow-hidden h-[500px] w-full">
+        <img class="object-cover brightness-75" src="{{ asset('storage/' . $wisata->image) }}" alt="">
+      </div>
+      @else
+      <div class="overflow-hidden h-[500px] w-full">
+        <img class="object-cover brightness-75" src="http://source.unsplash.com/1920x1080?{{ $wisata->title }}" alt="">
+      </div>
+    @endif
   </div>
   <div class="pt-4 pb-24 px-4 space-y-4 container flex flex-col lg:flex-row">
     <div class="lg:max-w-[65%] max-w-[100%] text-justify format format-red">

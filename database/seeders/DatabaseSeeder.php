@@ -36,23 +36,27 @@ class DatabaseSeeder extends Seeder
         User::factory(4)->create();
 
         City::create([
-            'name' => 'Kebumen',
+            'title' => 'Kebumen',
+            'user_id' => 1,
             'slug' => 'kebumen',
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ex nisi doloremque dolore reiciendis eligendi velit, ullam inventore itaque?',
         ]);
         City::create([
-            'name' => 'Purwokerto',
+            'title' => 'Purwokerto',
             'slug' => 'purwokerto',
+            'user_id' => 1,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ex nisi doloremque dolore reiciendis eligendi velit, ullam inventore itaque?',
         ]);
         City::create([
-            'name' => 'Cilacap',
+            'title' => 'Cilacap',
             'slug' => 'cilacap',
+            'user_id' => 1,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ex nisi doloremque dolore reiciendis eligendi velit, ullam inventore itaque?',
         ]);
         City::create([
-            'name' => 'Semarang',
+            'title' => 'Semarang',
             'slug' => 'semarang',
+            'user_id' => 1,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ex nisi doloremque dolore reiciendis eligendi velit, ullam inventore itaque?',
         ]);
 

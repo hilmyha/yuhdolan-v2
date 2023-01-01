@@ -6,7 +6,7 @@
   <h1>Create New Post</h1>
 
   <div class="mt-5 md:col-span-2 md:mt-0">
-    <form action="/dashboard/wisata" method="post">
+    <form action="/dashboard/wisata" method="post" enctype="multipart/form-data">
       @csrf
         <div class="space-y-6 bg-white py-2 sm:p-6">
           <div>
@@ -73,11 +73,18 @@
               @endforeach
             </select>
           </div>
+
+          
+          <label class="block mb-2 text-sm font-medium text-gray-900" for="image">Upload file</label>
+          <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 peer invalid:focus:ring-pink-600 invalid:text-pink-600 invalid:focus:border-pink-600" id="image" name="image" type="file">
+
+
           <div>
             <label for="body" class="block mb-2 text-sm font-medium text-gray-700">Body</label>
             <input id="body" type="hidden" name="body" value="{{ old('body') }}">
             <trix-editor input="body"></trix-editor>
           </div>
+          
           <div>
             <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Create post</button>
           </div>

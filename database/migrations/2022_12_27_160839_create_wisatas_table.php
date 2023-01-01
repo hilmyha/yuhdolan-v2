@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('harga');
             $table->string('latitude');
             $table->string('longitude');
+            $table->string('image')->nullable();
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });

@@ -8,6 +8,7 @@ use App\Models\Wisata;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardWisataController extends Controller
 {
@@ -45,7 +46,6 @@ class DashboardWisataController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->file('image')->store('images');
 
         $validatedData = $request->validate([
             'title' => 'required|max:255',
@@ -65,9 +65,7 @@ class DashboardWisataController extends Controller
         }
 
         $validatedData['user_id'] = auth()->user()->id;
-        // $validatedData['excerpt'] = Str::words(strip_tags($request->body), 200);
-
-        // dd($validatedData);
+        
         Wisata::create($validatedData);
 
         return redirect('/dashboard/wisata')->with('success', 'Post has been added');
@@ -101,12 +99,12 @@ class DashboardWisataController extends Controller
     public function edit($id)
     {
         $wisata = Wisata::find($id);
-        // $cities = City::all();
-        // $users = User::all();
+        $cities = City::all();
+        $users = User::all();
         return view('dashboard.wisata.edit', [
             'wisata' => $wisata,
             'cities' => City::all(),
-            // 'users' => $users,
+            'users' => $users,
         ]);
         
     }
@@ -123,13 +121,13 @@ class DashboardWisataController extends Controller
         $wisata = Wisata::find($id);
         $rules = [
             'title' => 'required|max:255',
-            // 'slug' => 'required',
             'excerpt' => 'required',
             'harga' => 'required',
             'no_pengelola' => 'required',
             'latitude' => 'required',
             'longitude' => 'required',
             'city_id' => 'required',
+            'image' => 'image|file|max:1024',
             'body' => 'required',
         ];
 
@@ -138,9 +136,16 @@ class DashboardWisataController extends Controller
         }
 
         $validatedData = $request->validate($rules);
+        
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('images');
+        }
+        
         $validatedData['user_id'] = auth()->user()->id;
 
-        // dd($validatedData);
         Wisata::where('id', $wisata->id)->update($validatedData);
 
         return redirect('/dashboard/wisata')->with('success', 'Post has been updated');
@@ -155,6 +160,12 @@ class DashboardWisataController extends Controller
      */
     public function destroy($id)
     {
+        if (auth()->user()->id == '1') {
+            $wisata = Wisata::find($id);
+            if ($wisata->image) {
+                Storage::delete($wisata->image);
+            }
+        }
         Wisata::destroy($id);
 
         return redirect('/dashboard/wisata')->with('success', 'Post has been deleted');

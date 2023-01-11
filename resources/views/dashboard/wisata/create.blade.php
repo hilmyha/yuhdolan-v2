@@ -62,7 +62,7 @@
           </div>
 
           <div>
-            <label for="city" class="block mb-2 text-sm font-medium text-gray-900">Select your country</label>
+            <label for="city" class="block mb-2 text-sm font-medium text-gray-900">Select your city</label>
             <select id="city" name="city_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
               @foreach ($cities as $city)
                 @if (old('city_id') == $city->id)
@@ -73,11 +73,12 @@
               @endforeach
             </select>
           </div>
-
           
+          <div class="overflow-hidden">
+            <img class="preview-img hidden w-[500px] object-cover" src="" alt="">
+          </div>
           <label class="block mb-2 text-sm font-medium text-gray-900" for="image">Upload file</label>
-          <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 peer invalid:focus:ring-pink-600 invalid:text-pink-600 invalid:focus:border-pink-600" id="image" name="image" type="file">
-
+          <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 peer invalid:focus:ring-pink-600 invalid:text-pink-600 invalid:focus:border-pink-600" id="image" name="image" type="file" onchange="previewImage()">
 
           <div>
             <label for="body" class="block mb-2 text-sm font-medium text-gray-700">Body</label>
@@ -103,6 +104,19 @@
   document.addEventListener('trix-file-accept', function (e) {
     e.preventDefault()
   })
+  function previewImage() {
+    const image = document.querySelector('#image')
+    const imgPreview = document.querySelector('.preview-img')
+    
+    imgPreview.style.display = 'block'
+
+    const oFReader = new FileReader()
+    oFReader.readAsDataURL(image.files[0])
+
+    oFReader.onload = function (oFREvent) {
+      imgPreview.src = oFREvent.target.result
+    }
+  }
 </script>
 
 @endsection

@@ -6,7 +6,7 @@
   <h1>Edit Post</h1>
 
   <div class="mt-5 md:col-span-2 md:mt-0">
-    <form action="/dashboard/wisata/{{ $wisata->id }}" method="post">
+    <form action="/dashboard/wisata/{{ $wisata->id }}" method="post" enctype="multipart/form-data">
       @method('put')
       @csrf
         <div class="space-y-6 bg-white py-2 sm:p-6">
@@ -63,7 +63,7 @@
           </div>
 
           <div>
-            <label for="city" class="block mb-2 text-sm font-medium text-gray-900">Select your country</label>
+            <label for="city" class="block mb-2 text-sm font-medium text-gray-900">Select your city</label>
             <select id="city" name="city_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
               @foreach ($cities as $city)
                 @if (old('city_id', $wisata->city_id) == $city->id)
@@ -74,11 +74,24 @@
               @endforeach
             </select>
           </div>
+
+          <div class="overflow-hidden">
+            @if ($wisata->image)
+              <img class="preview-img w-[500px] object-cover" src="{{ asset('storage/' . $wisata->image) }}" alt="">
+            @else
+              <img class="preview-img w-[500px] object-cover" src="" alt="">
+            @endif
+          </div>
+          <label class="block mb-2 text-sm font-medium text-gray-900" for="image">Upload file</label>
+          <input type="hidden" name="oldImage" value="{{ $wisata->image }}">
+          <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 peer invalid:focus:ring-pink-600 invalid:text-pink-600 invalid:focus:border-pink-600" id="image" name="image" type="file" onchange="previewImage()">
+
           <div>
             <label for="body" class="block mb-2 text-sm font-medium text-gray-700">Body</label>
             <input id="body" type="hidden" name="body" value="{{ old('body', $wisata->body) }}">
             <trix-editor input="body"></trix-editor>
           </div>
+
           <div>
             <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Update post</button>
           </div>
@@ -97,6 +110,19 @@
   document.addEventListener('trix-file-accept', function (e) {
     e.preventDefault()
   })
+  function previewImage() {
+    const image = document.querySelector('#image')
+    const imgPreview = document.querySelector('.preview-img')
+    
+    imgPreview.style.display = 'block'
+
+    const oFReader = new FileReader()
+    oFReader.readAsDataURL(image.files[0])
+
+    oFReader.onload = function (oFREvent) {
+      imgPreview.src = oFREvent.target.result
+    }
+  }
 </script>
 
 @endsection

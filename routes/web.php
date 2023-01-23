@@ -47,9 +47,11 @@ Route::get('/blog/{blog:slug}', [BlogController::class, 'show']);
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
+
 // register
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
+
 // dashboard
 Route::get('/dashboard', function () {
     return view('dashboard.index', [
@@ -58,12 +60,14 @@ Route::get('/dashboard', function () {
 })->middleware('auth');
 
 // dashboard wisata
-Route::get('/dashboard/wisata/checkSlug', [DashboardWisataController::class, 'checkSlug'])->middleware('auth');
-Route::resource('/dashboard/wisata', DashboardWisataController::class)->middleware('auth');
+Route::get('/dashboard/wisata/checkSlug', [DashboardWisataController::class, 'checkSlug'])->middleware('is_admin');
+Route::resource('/dashboard/wisata', DashboardWisataController::class)->middleware('is_admin');
+
 // dashboard blog
 Route::get('/dashboard/blog/checkSlug', [DasboardBlogController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/blog', DasboardBlogController::class)->middleware('auth');
+
 // dashboard city
-Route::get('/dashboard/city/checkSlug', [DashboardCityController::class, 'checkSlug'])->middleware('auth');
-Route::resource('/dashboard/city', DashboardCityController::class)->middleware('auth');
+Route::get('/dashboard/city/checkSlug', [DashboardCityController::class, 'checkSlug'])->middleware('is_admin');
+Route::resource('/dashboard/city', DashboardCityController::class)->except('show')->middleware('is_admin');
 

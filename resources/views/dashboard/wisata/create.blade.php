@@ -62,7 +62,7 @@
           </div>
 
           <div>
-            <label for="city" class="block mb-2 text-sm font-medium text-gray-900">Select your city</label>
+            <label for="city" class="block mb-2 text-sm font-medium text-gray-900">Select your city </label>
             <select id="city" name="city_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
               @foreach ($cities as $city)
                 @if (old('city_id') == $city->id)

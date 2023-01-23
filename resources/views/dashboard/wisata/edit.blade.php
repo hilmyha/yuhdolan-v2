@@ -1,4 +1,4 @@
-@extends('dashboard.components.dashboard-layout')
+  @extends('dashboard.components.dashboard-layout')
 
 @section('container')
   
@@ -82,6 +82,7 @@
               <img class="preview-img w-[500px] object-cover" src="" alt="">
             @endif
           </div>
+          
           <label class="block mb-2 text-sm font-medium text-gray-900" for="image">Upload file</label>
           <input type="hidden" name="oldImage" value="{{ $wisata->image }}">
           <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 peer invalid:focus:ring-pink-600 invalid:text-pink-600 invalid:focus:border-pink-600" id="image" name="image" type="file" onchange="previewImage()">

@@ -61,11 +61,12 @@ class DashboardCityController extends Controller
      */
     public function show($id)
     {
-        $city = City::find($id);
-        return view('dashboard.city.show', [
-            'title' => 'City',
-            'city' => $city,
-        ]);
+        // 
+        // $city = City::find($id);
+        // return view('dashboard.city.show', [
+        //     'title' => 'City',
+        //     'city' => $city,
+        // ]);
     }
 
     /**

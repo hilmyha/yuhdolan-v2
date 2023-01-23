@@ -42,7 +42,6 @@
                     {{ $city->description }}
                 </td>
                 <td class="py-4 px-6">
-                    <a href="/dashboard/city/{{ $city->id }}" class="font-medium mr-2 border text-green-500 hover:underline">Show</a>
                     <a href="/dashboard/city/{{ $city->id }}/edit" class="font-medium mr-2 border text-yellow-300 hover:underline">Edit</a>
                     <form class="inline" action="/dashboard/city/{{ $city->id }}" method="post">
                       @method('delete')

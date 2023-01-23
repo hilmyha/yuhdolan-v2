@@ -42,6 +42,12 @@ Route::get('/city/{city:slug}', [CityController::class, 'show']);
 // blog
 Route::get('/blog', [BlogController::class, 'index']);
 Route::get('/blog/{blog:slug}', [BlogController::class, 'show']);
+// about us
+Route::get('/about-us', function () {
+    return view('about-us.index', [
+        'title' => 'About Us',
+    ]);
+});
 
 // login
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');

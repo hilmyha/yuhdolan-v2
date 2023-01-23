@@ -17,6 +17,7 @@ class CityController extends Controller
     {
         return view('cities.index', [
             'title' => 'Kota',
+            'desc' => 'Temukan kota berdasarkan tujuanmu.',
             'cities' => City::with('wisata')->get(),
         ]);
     }

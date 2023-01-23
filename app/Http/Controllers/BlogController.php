@@ -17,6 +17,7 @@ class BlogController extends Controller
     {
         return view('blog.index', [
             'title' => 'Blog',
+            'desc' => 'Baca artikel terbaru dari penulis yang masih fresh dan hangat.',
             'blogs' => Blog::with(['user'])->latest()->get()
         ]);
     }

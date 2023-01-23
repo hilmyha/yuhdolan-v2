@@ -17,6 +17,7 @@ class WisataController extends Controller
     {
         return view('wisata.index',[
             'title' => 'Wisata',
+            'desc' => 'Wisata paling keren yang harus kalian tuju.',
             'wisatas' => Wisata::with('city', 'user')->latest()->paginate(6),
             
         ]);

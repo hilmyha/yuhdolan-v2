@@ -65,7 +65,7 @@
       
       <div class="pb-10">
         <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-700">Top Destination</h2>
-        <p class="font-light text-gray-500 sm:text-xl">We use an agile approach to test assumptions and connect with the needs of your audience early and often.</p>
+        <p class="font-light text-gray-500 sm:text-xl">Wisata paling keren yang harus kalian tuju.</p>
       </div>
     
       <div class="grid gap-8 xl:grid-cols-3 lg:grid-cols-2">     
@@ -107,7 +107,7 @@
     <div class="py-24 px-4 container">
       <div class="pb-10">
         <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-700">Hidden Gems</h2>
-        <p class="font-light text-gray-500 sm:text-xl">We use an agile approach to test assumptions and connect with the needs of your audience early and often.</p>
+        <p class="font-light text-gray-500 sm:text-xl">Baca artikel terbaru dari penulis yang masih fresh dan hangat.</p>
       </div>
       
       <div class="grid gap-8 grid-cols-1 xl:grid-cols-4 lg:grid-cols-2">
@@ -159,7 +159,7 @@
       
       <div class="pb-10">
         <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-700">Destination by City</h2>
-        <p class="font-light text-gray-500 sm:text-xl">We use an agile approach to test assumptions and connect with the needs of your audience early and often.</p>
+        <p class="font-light text-gray-500 sm:text-xl">Temukan kota berdasarkan tujuanmu.</p>
       </div>
     
       <div class="grid gap-8 xl:grid-cols-3 lg:grid-cols-2">     

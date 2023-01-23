@@ -1,7 +1,7 @@
 <header class="bg-white border-gray-200 md:px-10 sm:px-2 py-5 rounded dark:bg-gray-900">
   <div class="px-4 flex flex-wrap items-center justify-between">
     <a href="/" class="flex items-center">
-        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">YuhDolan</span>
+        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Dashboard</span>
     </a>
     <div class="flex items-center md:order-1">
         <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">

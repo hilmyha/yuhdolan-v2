@@ -2,7 +2,7 @@
 <header class="bg-white px-2 sm:px-4 py-2.5 fixed w-full z-50 top-0 left-0 border-b shadow-lg border-gray-200 mb-24">
   <div class="navbar-body">
     <a href="/" class="flex items-center">
-      <span class="self-center text-xl font-semibold whitespace-nowrap">YuhDolan</span>
+      <span class="self-center text-4xl my-3 font-semibold whitespace-nowrap font-leckerli text-primary-500">Yuh<span class="text-yellow-400">Dolan</span></span>
     </a>
     <div class="navbar-button">
       
@@ -33,8 +33,8 @@
             
         </div>
       @else
-        <a href="/login" class="text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">
-          Get Started
+        <a href="/login" class="text-white bg-primary-500 hover:bg-primary-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">
+          Login
         </a>
       @endauth
       <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-sticky" aria-expanded="false">

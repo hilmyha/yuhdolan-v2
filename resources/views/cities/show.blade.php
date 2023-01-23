@@ -1,8 +1,8 @@
 @extends('components.layout')
 
 @section('container')
-<section class="bg-white">
-  <div class="pt-48 pb-24 px-4 container border">
+<section class="bg-white h-screen">
+  <div class="pt-48 pb-24 px-4 container">
     
     <div class="pb-10">
       <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-700">Post by city in {{ $title }}</h2>

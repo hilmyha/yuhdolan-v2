@@ -1,8 +1,8 @@
 @extends('components.layout')
 
 @section('container')
-<section class="bg-white">
-  <div class=" pt-32 pb-4 px-4 container flex border">
+<section class="bg-white h-screen">
+  <div class=" pt-32 pb-4 px-4 container flex">
     {{-- thumbnail --}}
     <div class="overflow-hidden h-[500px] w-full">
       <img class="object-cover brightness-75" src="http://source.unsplash.com/1920x1080?{{ $blog->name }}" alt="">

@@ -25,7 +25,7 @@
 
     @include('dashboard.components.sidebar')
 
-    <article class="border p-12 w-full shadow-lg">
+    <article class="border p-12 w-full h-screen shadow-lg">
       @yield('container')
     </article>
   </div>

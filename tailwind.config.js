@@ -14,7 +14,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      poppins: ['Poppins', 'sans-serif']
+      poppins: ['Poppins', 'sans-serif'],
+      leckerli: ['Leckerli One', 'cursive'],
     },
     screens: {
       'android': '480px',      

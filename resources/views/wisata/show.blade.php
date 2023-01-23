@@ -1,7 +1,7 @@
 @extends('components.layout')
 
 @section('container')
-<section class="bg-white">
+<section class="bg-white h-screen">
   <div class=" pt-32 pb-4 px-4 container flex">
     {{-- thumbnail --}}
     @if ($wisata->image)
